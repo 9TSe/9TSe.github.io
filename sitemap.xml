@@ -666,13 +666,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/gcc-g/</loc>
-    <lastmod>2023-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/chrono%E5%BA%93/</loc>
     <lastmod>2023-10-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -680,7 +673,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/vim/</loc>
+    <loc>http://example.com/tags/gcc-g/</loc>
     <lastmod>2023-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -688,6 +681,13 @@
   
   <url>
     <loc>http://example.com/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</loc>
+    <lastmod>2023-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/vim/</loc>
     <lastmod>2023-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -709,6 +709,27 @@
   
   <url>
     <loc>http://example.com/tags/socket/</loc>
+    <lastmod>2023-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/IO%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E5%A4%8D%E7%94%A8/</loc>
+    <lastmod>2023-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/TCP/</loc>
+    <lastmod>2023-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/UDP/</loc>
     <lastmod>2023-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -737,27 +758,6 @@
   
   <url>
     <loc>http://example.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
-    <lastmod>2023-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/IO%E5%A4%9A%E8%B7%AF%E8%BD%AC%E6%8E%A5%E5%A4%8D%E7%94%A8/</loc>
-    <lastmod>2023-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/TCP/</loc>
-    <lastmod>2023-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/UDP/</loc>
     <lastmod>2023-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
