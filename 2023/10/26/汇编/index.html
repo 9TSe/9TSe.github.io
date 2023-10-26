@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>汇编 | 9TSe</title><meta name="author" content="9TSe"><meta name="copyright" content="9TSe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 第一段代码：Hello World123456789101112131415161718192021DSEG SEGMENT        MESS DB &amp;#x27;Hello, World!&amp;#x27;,0DH,0AH,24HDSEG ENDSSSEG SEGMENT PARA STACK             DW 256 DUP(?)SSEG ENDSCSEG SEGMENT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编">
+<meta property="og:url" content="http://example.com/2023/10/26/%E6%B1%87%E7%BC%96/index.html">
+<meta property="og:site_name" content="9TSe">
+<meta property="og:description" content="1. 第一段代码：Hello World123456789101112131415161718192021DSEG SEGMENT        MESS DB &amp;#x27;Hello, World!&amp;#x27;,0DH,0AH,24HDSEG ENDSSSEG SEGMENT PARA STACK             DW 256 DUP(?)SSEG ENDSCSEG SEGMENT">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/pic/1.png">
+<meta property="article:published_time" content="2023-10-26T11:45:36.000Z">
+<meta property="article:modified_time" content="2023-10-26T13:18:35.915Z">
+<meta property="article:author" content="9TSe">
+<meta property="article:tag" content="汇编语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/pic/1.png"><link rel="shortcut icon" href="/pic/12.png"><link rel="canonical" href="http://example.com/2023/10/26/%E6%B1%87%E7%BC%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇编',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-26 21:18:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="9TSe" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/pic/avater.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/pic/1.png')"><nav id="nav"><span id="blog-info"><a href="/" title="9TSe"><img class="site-icon" src="/pic/9.png"/></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">汇编</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-26T11:45:36.000Z" title="发表于 2023-10-26 19:45:36">2023-10-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-26T13:18:35.915Z" title="更新于 2023-10-26 21:18:35">2023-10-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="汇编"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-第一段代码：Hello-World"><a href="#1-第一段代码：Hello-World" class="headerlink" title="1. 第一段代码：Hello World"></a>1. 第一段代码：Hello World</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DSEG SEGMENT</span><br><span class="line">        MESS DB &#x27;Hello, World!&#x27;,0DH,0AH,24H</span><br><span class="line">DSEG ENDS</span><br><span class="line"></span><br><span class="line">SSEG SEGMENT PARA STACK</span><br><span class="line">             DW 256 DUP(?)</span><br><span class="line">SSEG ENDS</span><br><span class="line"></span><br><span class="line">CSEG SEGMENT</span><br><span class="line">              ASSUME CS:CSEG, DS:DSEG</span><br><span class="line">        BEGIN:MOV    AX,DSEG</span><br><span class="line">              MOV    DS,AX</span><br><span class="line">              MOV    DX,OFFSET MESS</span><br><span class="line">              </span><br><span class="line">              MOV    AH,9</span><br><span class="line">              INT    21H</span><br><span class="line">              </span><br><span class="line">              MOV    AH,4CH</span><br><span class="line">              INT    21H</span><br><span class="line">CSEG ENDS</span><br><span class="line">END BEGIN</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-基础指令"><a href="#2-基础指令" class="headerlink" title="2. 基础指令"></a>2. 基础指令</h1><p>用以下指令可以写一个基础的程序：</p>
+<ol>
+<li>段定义+Assume</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">XXX SEGMENT(XXX:DATA/STACK/CODE)</span><br><span class="line">XXX ENDS</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ASSUME CS:CSEG, DS:DSEG, SS:SSEG</span><br><span class="line">MOV AX,DSEG</span><br><span class="line">MOV DS,AX</span><br><span class="line">MOV AX,SSEG</span><br><span class="line">MOV SS,AX</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>数据定义</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(ORG 1000)</span><br><span class="line">(NAME) DB ?/...</span><br><span class="line">(NAME) DB N DUP(?/...)</span><br><span class="line">db:12H/dw:1234H</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>MOV</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV AX,Y</span><br><span class="line">MOV Y,AX</span><br><span class="line">MOV AX,BX</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>+-</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ADD AX,X;AX+=X</span><br><span class="line">SUB AX,X;</span><br><span class="line">INC AX;AX++</span><br><span class="line">DEC AX;AX--</span><br><span class="line"></span><br><span class="line">NEG AX ;取负</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="5">
+<li>程序的终止</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV AH,4CH</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="3-寄存器的使用"><a href="#3-寄存器的使用" class="headerlink" title="3. 寄存器的使用"></a>3. 寄存器的使用</h1><p>在汇编语言中，我们不能对内存中的数据进行直接操作，如果要操作，需要把数据先<code>MOV</code>到寄存器中再进行处理。</p>
+<p>8086 CPU 中有14个16位寄存器 。16位的存储可以用16进制表示，BeLike：<code>123AH</code>（H表示16进制)在查看内存情况的时候，由于数据从高位到低位存储，BeLike：<code>3A 12</code></p>
+<p><img src="/img/c-.1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DSEG ...</span><br><span class="line">X DB 12H</span><br><span class="line">Y DB ?</span><br><span class="line">....</span><br><span class="line"></span><br><span class="line">CSEG...</span><br><span class="line">...</span><br><span class="line">MOV AH,X</span><br><span class="line">MOV Y,AH ;Y--12H</span><br></pre></td></tr></table></figure>
+
+
+<p>可以拆分为两个寄存器使用（AH和AL），不过各自有各自的独特作用，用到再提，这和它们的名字是关联的</p>
+<p>说到底为什么<code>通用</code>寄存器会有<code>独特的作用</code>？<br>这是因为一些内置的指令依靠<strong>固定</strong>的寄存器传递参数，所以这些寄存器也有了独特的作用</p>
+<p>一般来说随便用就可以，反正里面的东西不久存，只是用来做中转</p>
+<h2 id="3-1-AX：Accumlator-累加器"><a href="#3-1-AX：Accumlator-累加器" class="headerlink" title="3.1 AX：Accumlator 累加器"></a>3.1 AX：Accumlator 累加器</h2><p>特殊功能和MUL&#x2F;DIV有关，后面再说</p>
+<h2 id="3-2-BX：Base-基地址寄存器"><a href="#3-2-BX：Base-基地址寄存器" class="headerlink" title="3.2 BX：Base 基地址寄存器"></a>3.2 BX：Base 基地址寄存器</h2><p>可以存储地址并访问<br>说到地址，就得提一下汇编语言里地址的表示方法<br>在汇编语言里，内存中的地址BeLike：<code>204B:1001</code> （以16进制表示）<br><code>204B</code>是<strong>段地址</strong>，<code>1001</code>是<strong>偏移地址</strong>，各需要一个Word进行存储<br>有两个指令对应的获取内存单元的这两种地址<br>    <code>SEG</code>可以获取<strong>段地址</strong>（这个段就是指我们程序对应的段Segment），<code>OFFSET</code>可以获取<strong>偏移地址</strong><br>    使用这两个词只需要在MOV时加在变量前即可，比如<code>MOV BX offset X</code><br>在<code>通过地址找内容</code>这件事方面，一般用BX存储偏移地址<br>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X DW 1234H</span><br><span class="line">Y DW ?</span><br><span class="line">...</span><br><span class="line">MOV BX, OFFSET X;BX中存储了X的偏移地址</span><br><span class="line">MOV Y, [BX];BX存储的偏移地址对应的内容被存放到y</span><br></pre></td></tr></table></figure>
+
+<p>一般来说，<code>[BX]</code>就是指 <code>DS:[BX]</code>，默认段地址为数据段，当然你也可以指定为CS和SS</p>
+<h2 id="3-3-CX：Count-计数器"><a href="#3-3-CX：Count-计数器" class="headerlink" title="3.3 CX：Count 计数器"></a>3.3 CX：Count 计数器</h2><p>和循环指令<code>LOOP</code>有关</p>
+<p>LOOP指令类似于C语言中的For循环，<code>loop NAME</code>近似于<code>for(cx;;cx--)</code><br>关于LOOP的用法，具体到程序结构再说好了~。</p>
+<h2 id="3-4-DX：Data-数据寄存器"><a href="#3-4-DX：Data-数据寄存器" class="headerlink" title="3.4 DX：Data 数据寄存器"></a>3.4 DX：Data 数据寄存器</h2><p>特殊功能和MUL&#x2F;DIV有关，后面再说<br>也有与输入输出的暂存有关的功能（9.10号指令）</p>
+<hr>
+<h2 id="3-5-指针变址寄存器：SP，BP，SI，DI"><a href="#3-5-指针变址寄存器：SP，BP，SI，DI" class="headerlink" title="3.5 指针变址寄存器：SP，BP，SI，DI"></a>3.5 指针变址寄存器：SP，BP，SI，DI</h2><p>都倾向于用来存地址</p>
+<h3 id="3-5-1-SP：Stack-Pointer"><a href="#3-5-1-SP：Stack-Pointer" class="headerlink" title="3.5.1 SP：Stack Pointer"></a>3.5.1 SP：Stack Pointer</h3><p>和堆栈段的使用有关，定义堆栈段要记得手动把SP放在栈顶</p>
+<h3 id="3-5-2-BP：Base-Pointer"><a href="#3-5-2-BP：Base-Pointer" class="headerlink" title="3.5.2 BP：Base Pointer"></a>3.5.2 BP：Base Pointer</h3><p>和BX有类似的用法，只是一般更倾向于用在堆栈的数据里，<code>[BP]</code>默认为<code>SS:[BP]</code></p>
+<h3 id="3-5-3-SI：Source-Index"><a href="#3-5-3-SI：Source-Index" class="headerlink" title="3.5.3 SI：Source Index"></a>3.5.3 SI：Source Index</h3><h3 id="3-5-4-DI：Destination-Index"><a href="#3-5-4-DI：Destination-Index" class="headerlink" title="3.5.4 DI：Destination Index"></a>3.5.4 DI：Destination Index</h3><p>和BX有类似的用法，<code>[SI]</code>默认为<code>DS:[SI]</code><br>如果要转移数据，倾向于用SI存原地址，DI存新地址</p>
+<hr>
+<h2 id="3-6-段寄存器：CS，DS，SS，ES，IP"><a href="#3-6-段寄存器：CS，DS，SS，ES，IP" class="headerlink" title="3.6 段寄存器：CS，DS，SS，ES，IP"></a>3.6 段寄存器：CS，DS，SS，ES，IP</h2><p>段的存在方便我们以<code>段地址+偏移地址</code>的方式定位内存单元<br>刚刚在例子中看到，一般的程序我们定义三个段，Data、Stack和Code，它们的作用和名字是一致的</p>
+<p>这些寄存器都和程序段还有程序的运行有关。<br>在程序启动的时候，操作系统会把IP（Instruction Pointer）指向程序的第一句开始运行，之后IP会一直指向每次要运行的下一条指令</p>
+<p>在代码段的开始，我们就用Assume语句声明CS、DS、SS的地址<br>和CS不同，DS和SS寄存器的值需要我们手动指定，而与SS寄存器绑定的SP指针也需要我们手动设置（SS:SP指向的就是栈顶元素）</p>
+<p>ES是Extra Segment，程序有附加段落的时候才用，用法和DS SS差不多</p>
+<h2 id="3-7-寄存器合集统计"><a href="#3-7-寄存器合集统计" class="headerlink" title="3.7 寄存器合集统计"></a>3.7 寄存器合集统计</h2><ul>
+<li><p><strong>通用寄存器</strong> (General-Purpose Registers):</p>
+<ul>
+<li><code>AX</code>, <code>BX</code>, <code>CX</code>, <code>DX</code>: 16位寄存器</li>
+<li><code>EAX</code>, <code>EBX</code>, <code>ECX</code>, <code>EDX</code>: 32位寄存器</li>
+<li><code>RAX</code>, <code>RBX</code>, <code>RCX</code>, <code>RDX</code>: 64位寄存器</li>
+</ul>
+</li>
+<li><p><strong>指针寄存器</strong> (Pointer Registers):</p>
+<ul>
+<li><code>SI</code>: 源变址寄存器 (Source Index)</li>
+<li><code>DI</code>: 目的变址寄存器 (Destination Index)</li>
+<li><code>BP</code>: 基址指针寄存器 (Base Pointer)</li>
+<li><code>SP</code>: 堆栈指针寄存器 (Stack Pointer)</li>
+</ul>
+</li>
+<li><p><strong>段寄存器</strong> (Segment Registers):</p>
+<ul>
+<li><code>CS</code>: 代码段寄存器 (Code Segment)</li>
+<li><code>DS</code>: 数据段寄存器 (Data Segment)</li>
+<li><code>SS</code>: 堆栈段寄存器 (Stack Segment)</li>
+<li><code>ES</code>: 附加段寄存器 (Extra Segment)</li>
+<li><code>FS</code>, <code>GS</code>: 额外段寄存器 (Additional Segment) [64位模式中常用于TLS]</li>
+</ul>
+</li>
+<li><p><strong>指令指针寄存器</strong> (Instruction Pointer Register):</p>
+<ul>
+<li><code>IP</code>: 指令指针 (Instruction Pointer) - 16位</li>
+<li><code>EIP</code>: 扩展指令指针 (Extended Instruction Pointer) - 32位</li>
+<li><code>RIP</code>: 64位指令指针寄存器</li>
+</ul>
+</li>
+<li><p><strong>标志寄存器</strong> (Flags Register):</p>
+<ul>
+<li><code>FLAGS</code>, <code>EFLAGS</code>, <code>RFLAGS</code>: 包含各种标志位，如零标志、进位标志、溢出标志等。</li>
+</ul>
+</li>
+<li><p><strong>控制寄存器</strong> (Control Registers) 和 <strong>调试寄存器</strong> (Debug Registers): 主要用于系统控制和调试。</p>
+<ul>
+<li><code>CR0</code>, <code>CR2</code>, <code>CR3</code>, <code>CR4</code>: 控制寄存器</li>
+<li><code>DR0</code>, <code>DR1</code>, <code>DR2</code>, <code>DR3</code>, <code>DR6</code>, <code>DR7</code>: 调试寄存器</li>
+</ul>
+</li>
+<li><p><strong>测试寄存器</strong> (Test Registers): <code>TR6</code>, <code>TR7</code>，主要用于处理器内部测试。</p>
+</li>
+<li><p><strong>浮点寄存器</strong> (Floating-Point Registers): <code>ST0</code> 到 <code>ST7</code>，主要用于浮点运算。</p>
+</li>
+<li><p><strong>多媒体扩展寄存器</strong> (Multimedia Extension Registers): <code>MM0</code> 到 <code>MM7</code>，主要用于多媒体和SIMD（单指令多数据）操作。</p>
+</li>
+</ul>
+<hr>
+<h1 id="4-进阶指令"><a href="#4-进阶指令" class="headerlink" title="4. 进阶指令"></a>4. 进阶指令</h1><h2 id="4-1-Label和Jump：跳转"><a href="#4-1-Label和Jump：跳转" class="headerlink" title="4.1 Label和Jump：跳转"></a>4.1 Label和Jump：跳转</h2><p>一段代码可以拥有label，Jump NAME 即可跳转至label位置<br>比如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MAIN：MOV X,AX</span><br><span class="line">JUMP DONE</span><br><span class="line">MOV AX,Y</span><br><span class="line">...</span><br><span class="line">DONE:</span><br><span class="line">	MOV AH, 4CH</span><br><span class="line">	INT 21</span><br></pre></td></tr></table></figure>
+<p>在这段程序中，<code>MOV AX,Y</code>就会直接被跳过</p>
+<h2 id="4-2-分支和循环"><a href="#4-2-分支和循环" class="headerlink" title="4.2 分支和循环"></a>4.2 分支和循环</h2><h3 id="4-2-1-分支-CMP-JGE-…"><a href="#4-2-1-分支-CMP-JGE-…" class="headerlink" title="4.2.1 分支 CMP-JGE&#x2F;…"></a>4.2.1 分支 CMP-JGE&#x2F;…</h3><p><img src="/img/c-.3.png"></p>
+<p>BeLike:(求abs(AX)保存在AX中)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MAIN:</span><br><span class="line">...</span><br><span class="line">CMP AX,0</span><br><span class="line">JGE DONE; Jump if Greater or Equal</span><br><span class="line">NEG AX</span><br><span class="line">DONE:</span><br><span class="line">...</span><br><span class="line">END MAIN</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-2-2-循环-LOOP"><a href="#4-2-2-循环-LOOP" class="headerlink" title="4.2.2 循环  LOOP"></a>4.2.2 循环  LOOP</h3><p>一种简单的循环，类似于<code>for(cx;;cx--)</code>。（事实上，你可以用JUMP和分支结构来实现循环）</p>
+<p>LOOP NM过程中：<br>    0. CMP CX,0<br>    1. 如果CX&gt;0，继续执行以下语句，否则跳出<br>    2. DEC CX(CX&gt;0)<br>    3. JUMP NM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV CX,6</span><br><span class="line">NM: ...</span><br><span class="line">LOOP NM;这样写一共执行CX次（声明NM时执行1次，LOOP中执行CX-1次）</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-3-堆栈的使用"><a href="#4-3-堆栈的使用" class="headerlink" title="4.3 堆栈的使用"></a>4.3 堆栈的使用</h2><h3 id="4-3-1-初始化"><a href="#4-3-1-初始化" class="headerlink" title="4.3.1 初始化"></a>4.3.1 初始化</h3><p>两个好用的方法</p>
+<h4 id="4-3-1-1-堆栈段中做定义"><a href="#4-3-1-1-堆栈段中做定义" class="headerlink" title="4.3.1.1 堆栈段中做定义"></a>4.3.1.1 堆栈段中做定义</h4><ol>
+<li>在堆栈段划分位置，保存栈顶位置</li>
+<li>在程序段开始的时候把堆栈段的位置告诉堆栈寄存器SS，把栈顶的位置告诉指针寄存器SP</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SSEG SEGMENT</span><br><span class="line">      STACK DW  128 dup(?)</span><br><span class="line">      TOP   DW LENGTH STACK ;划定范围</span><br><span class="line">SSEG ENDS</span><br><span class="line"></span><br><span class="line">CSEG SEGMENT</span><br><span class="line">           ASSUME CS:CSEG,DS:DSEG,SS:SSEG</span><br><span class="line">      MAIN:</span><br><span class="line">           MOV    AX,DSEG</span><br><span class="line">           MOV    DS,AX</span><br><span class="line">           MOV    AX,SSEG</span><br><span class="line">           MOV    SS,AX</span><br><span class="line">           MOV    AX,TOP</span><br><span class="line">           MOV    SP,AX                        ;栈顶地址载入</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-1-2-程序段中划空间"><a href="#4-3-1-2-程序段中划空间" class="headerlink" title="4.3.1.2 程序段中划空间"></a>4.3.1.2 程序段中划空间</h5><p>直接给SP赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SSEG SEGMENT</span><br><span class="line">SSEG ENDS</span><br><span class="line">;ss:0000-ss:1000</span><br><span class="line">CSEG SEGMENT</span><br><span class="line">            ASSUME CS:CSEG, DS:DSEG,SS:SSEG</span><br><span class="line">      BEGIN:MOV    AX,DSEG</span><br><span class="line">            MOV    DS,AX</span><br><span class="line">            MOV    AX,SSEG</span><br><span class="line">            MOV    SS,AX</span><br><span class="line">            MOV    SP,1000H                      ;手动规定了1000H的空置空间(OFFSET 0H-1000H)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-3-2-PUSH和POP"><a href="#4-3-2-PUSH和POP" class="headerlink" title="4.3.2 PUSH和POP"></a>4.3.2 PUSH和POP</h3><p>注意：<code>只能操作寄存器</code>，不能直接操作内存单元<br><code>PUSH AX</code>：将AX的值入栈（如果AX两个字节，就会入栈两个字节，SP也相应-2）<br><code>POP AX</code>：出栈，内容保存在AX（如果AX两个字节，就会入栈两个字节，SP也相应+2）</p>
+<h3 id="4-3-3-用SP和BP操作堆栈"><a href="#4-3-3-用SP和BP操作堆栈" class="headerlink" title="4.3.3 用SP和BP操作堆栈"></a>4.3.3 用SP和BP操作堆栈</h3><p>在主程序只是暂存数据用的话，一般<code>不用</code>操作指针<br>但是，由于PROC需要使用到堆栈段，所以这是操作指针就是必要的，接下来在PROC中解释</p>
+<hr>
+<h2 id="4-4-函数：PROC和MACRO"><a href="#4-4-函数：PROC和MACRO" class="headerlink" title="4.4 函数：PROC和MACRO"></a>4.4 函数：PROC和MACRO</h2><blockquote>
+<p>PROC&amp;CALL（子程序结构）</p>
+</blockquote>
+<h3 id="4-4-1-定义-PROC-RET-ENDP"><a href="#4-4-1-定义-PROC-RET-ENDP" class="headerlink" title="4.4.1 定义 PROC-RET-ENDP"></a>4.4.1 定义 PROC-RET-ENDP</h3><p>(Near 属性是默认值)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MAIN:</span><br><span class="line">CALL NM</span><br><span class="line"></span><br><span class="line">NM PROC</span><br><span class="line">...</span><br><span class="line">RET</span><br><span class="line">NM ENDP</span><br><span class="line">...</span><br><span class="line">END MAIN</span><br></pre></td></tr></table></figure>
+
+<p>完整的表达式：<br>调用：<code>CALL FAR/NEAR PTR NM</code><br>定义：<code>NM PROC FAR/NEAR</code></p>
+<h3 id="4-4-2-子程序属性和调用"><a href="#4-4-2-子程序属性和调用" class="headerlink" title="4.4.2 子程序属性和调用"></a>4.4.2 子程序属性和调用</h3><h4 id="4-4-2-1-段内调用"><a href="#4-4-2-1-段内调用" class="headerlink" title="4.4.2.1 段内调用"></a>4.4.2.1 段内调用</h4><p>只需要Main（主Label调用）的话空置即可（默认Near）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A:...</span><br><span class="line">	CALL B;调用B</span><br><span class="line">	</span><br><span class="line">	PROC B:...;默认为near属性子程序</span><br><span class="line">	RET</span><br><span class="line">	B ENDP</span><br><span class="line">...</span><br><span class="line">END A</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-4-2-2-段间调用"><a href="#4-4-2-2-段间调用" class="headerlink" title="4.4.2.2 段间调用"></a>4.4.2.2 段间调用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PROC A:CALL FAR PTR B</span><br><span class="line">RET</span><br><span class="line">ENDP</span><br><span class="line"></span><br><span class="line">PROC B FAR:...;写明属性</span><br><span class="line">RET ENDP</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-4-3-注意堆栈"><a href="#4-4-3-注意堆栈" class="headerlink" title="4.4.3 注意堆栈"></a>4.4.3 注意堆栈</h3><p>PROC的本质是：入栈程序出口指针，RET时从回到出口指针的位置<br>所以：</p>
+<ol>
+<li>第一个出栈元素会是一个偏移地址</li>
+<li>如果最后SP的指针位置不对，就无法正确RET</li>
+</ol>
+<p>简单的方法：<code>用寄存器BP保护SP</code>，使用BP进行数据的读取</p>
+<blockquote>
+<p>eg: x+y子程序化<br>…</p>
+<ol>
+<li>在堆栈段push任意两个长度为1word的数据</li>
+<li>使用子程序，将这两个数据的和存储于AX</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUM PROC ;取两个栈顶元素求和储存到AX中</span><br><span class="line">         MOV    BP,SP</span><br><span class="line">         MOV    AX,[BP+2]</span><br><span class="line">         ADD    AX,[BP+4]</span><br><span class="line">         RET</span><br><span class="line">SUM ENDP</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-4-4-Macro（宏定义）"><a href="#4-4-4-Macro（宏定义）" class="headerlink" title="4.4.4 Macro（宏定义）"></a>4.4.4 Macro（宏定义）</h3><p>PROC的使用有调用开销（程序的中断 跳转 继续），而MACRO没有<br>MACRO相当于写代码的人把重复写代码的过程交给了汇编器，相比子程序来说，是通过多占程序的内存来提高运行速度（对机器来说，每调用一次Macro，就是把这段指令重复了一次）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NM MACRO R1,R2...(参数)</span><br><span class="line">...</span><br><span class="line">END M</span><br><span class="line"></span><br><span class="line">NM MACRO AX,BX...(寄存器取值)</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h2 id="4-5-INT-21H指令：输入-输出"><a href="#4-5-INT-21H指令：输入-输出" class="headerlink" title="4.5 INT 21H指令：输入&#x2F;输出"></a>4.5 INT 21H指令：输入&#x2F;输出</h2><h3 id="4-5-1-键盘输入"><a href="#4-5-1-键盘输入" class="headerlink" title="4.5.1 键盘输入"></a>4.5.1 键盘输入</h3><h4 id="4-5-1-1-1号指令：单个字符输入"><a href="#4-5-1-1-1号指令：单个字符输入" class="headerlink" title="4.5.1.1 1号指令：单个字符输入"></a>4.5.1.1 1号指令：单个字符输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MOV AH,1</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure>
+<p>(内容会保存在AL)</p>
+<h4 id="4-5-1-2-10号指令：从键盘输入字符串"><a href="#4-5-1-2-10号指令：从键盘输入字符串" class="headerlink" title="4.5.1.2 10号指令：从键盘输入字符串"></a>4.5.1.2 10号指令：从键盘输入字符串</h4><p>内存里需要划分三个部分：<br>    1.一个字节存放最大长度（你写，溢出会被裁掉）<br>    2.一个字节存放实际长度（指令运行完CPU会写）<br>    3.一些字节用来存字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">DATA SEGMENT</span><br><span class="line">    MAXLENGTH    DB 100           ;一个字节，用它存最大的长度</span><br><span class="line">    ACTUALLENGTH DB ?             ;一个字节，用它存实际的长度，在指令执行后会被填写</span><br><span class="line">    STRING       DB 100 DUP(?)    ;用来存字符串</span><br><span class="line">DATA ENDS</span><br><span class="line"></span><br><span class="line">STACK SEGMENT</span><br><span class="line">STACK ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT</span><br><span class="line">         ASSUME DS:DATA,SS:STACK,CS:CODE</span><br><span class="line">    MAIN:</span><br><span class="line">         MOV    AX,DATA</span><br><span class="line">         MOV    DS,AX</span><br><span class="line">         MOV    DX,OFFSET MAXLENGTH         ;把需要用到的内存块（三个部分）的地址存入DX</span><br><span class="line"></span><br><span class="line">         MOV    AH,10</span><br><span class="line">         INT    21H</span><br><span class="line"></span><br><span class="line">         MOV    AH,4CH</span><br><span class="line">         INT    21H</span><br><span class="line">CODE ENDS</span><br><span class="line">END MAIN</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-5-2-显示器输出"><a href="#4-5-2-显示器输出" class="headerlink" title="4.5.2 显示器输出"></a>4.5.2 显示器输出</h3><h4 id="4-5-2-1-2号调用：单个字符输出"><a href="#4-5-2-1-2号调用：单个字符输出" class="headerlink" title="4.5.2.1 2号调用：单个字符输出"></a>4.5.2.1 2号调用：单个字符输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV DL,&#x27;A&#x27;</span><br><span class="line">MOV AH,2</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5-2-2-9号调用：字符串输出"><a href="#4-5-2-2-9号调用：字符串输出" class="headerlink" title="4.5.2.2 9号调用：字符串输出"></a>4.5.2.2 9号调用：字符串输出</h4><p>你的字符串必须要以’$‘结尾！不然输出不会结束！（类似于’\0’，’$‘是一种字符串的终止符）<br>程序会将DS:DX地址开始输出字符到’$‘结尾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MOV DX,OFFSET STRING</span><br><span class="line">MOV AH,9</span><br><span class="line">INT 21H</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a></div><div class="post_share"><div class="social-share" data-image="/pic/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/25/CMake/" title="CMake"><img class="cover" src="/pic/3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CMake</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/pic/avater.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">9TSe</div><div class="author-info__description">难正经</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/9tse"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/9TSe" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:9TSewer@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">C++部分,Qt,Linux,文章摘于 https://subingwen.cn/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E6%AE%B5%E4%BB%A3%E7%A0%81%EF%BC%9AHello-World"><span class="toc-text">1. 第一段代码：Hello World</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4"><span class="toc-text">2. 基础指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">3. 寄存器的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-AX%EF%BC%9AAccumlator-%E7%B4%AF%E5%8A%A0%E5%99%A8"><span class="toc-text">3.1 AX：Accumlator 累加器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-BX%EF%BC%9ABase-%E5%9F%BA%E5%9C%B0%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">3.2 BX：Base 基地址寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-CX%EF%BC%9ACount-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">3.3 CX：Count 计数器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-DX%EF%BC%9AData-%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">3.4 DX：Data 数据寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E6%8C%87%E9%92%88%E5%8F%98%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9ASP%EF%BC%8CBP%EF%BC%8CSI%EF%BC%8CDI"><span class="toc-text">3.5 指针变址寄存器：SP，BP，SI，DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-SP%EF%BC%9AStack-Pointer"><span class="toc-text">3.5.1 SP：Stack Pointer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-BP%EF%BC%9ABase-Pointer"><span class="toc-text">3.5.2 BP：Base Pointer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-SI%EF%BC%9ASource-Index"><span class="toc-text">3.5.3 SI：Source Index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-4-DI%EF%BC%9ADestination-Index"><span class="toc-text">3.5.4 DI：Destination Index</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9ACS%EF%BC%8CDS%EF%BC%8CSS%EF%BC%8CES%EF%BC%8CIP"><span class="toc-text">3.6 段寄存器：CS，DS，SS，ES，IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E5%AF%84%E5%AD%98%E5%99%A8%E5%90%88%E9%9B%86%E7%BB%9F%E8%AE%A1"><span class="toc-text">3.7 寄存器合集统计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E8%BF%9B%E9%98%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">4. 进阶指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Label%E5%92%8CJump%EF%BC%9A%E8%B7%B3%E8%BD%AC"><span class="toc-text">4.1 Label和Jump：跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF"><span class="toc-text">4.2 分支和循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%88%86%E6%94%AF-CMP-JGE-%E2%80%A6"><span class="toc-text">4.2.1 分支 CMP-JGE&#x2F;…</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%BE%AA%E7%8E%AF-LOOP"><span class="toc-text">4.2.2 循环  LOOP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%A0%86%E6%A0%88%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">4.3 堆栈的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">4.3.1 初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-1-%E5%A0%86%E6%A0%88%E6%AE%B5%E4%B8%AD%E5%81%9A%E5%AE%9A%E4%B9%89"><span class="toc-text">4.3.1.1 堆栈段中做定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-1-2-%E7%A8%8B%E5%BA%8F%E6%AE%B5%E4%B8%AD%E5%88%92%E7%A9%BA%E9%97%B4"><span class="toc-text">4.3.1.2 程序段中划空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-PUSH%E5%92%8CPOP"><span class="toc-text">4.3.2 PUSH和POP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E7%94%A8SP%E5%92%8CBP%E6%93%8D%E4%BD%9C%E5%A0%86%E6%A0%88"><span class="toc-text">4.3.3 用SP和BP操作堆栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%87%BD%E6%95%B0%EF%BC%9APROC%E5%92%8CMACRO"><span class="toc-text">4.4 函数：PROC和MACRO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E5%AE%9A%E4%B9%89-PROC-RET-ENDP"><span class="toc-text">4.4.1 定义 PROC-RET-ENDP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E5%AD%90%E7%A8%8B%E5%BA%8F%E5%B1%9E%E6%80%A7%E5%92%8C%E8%B0%83%E7%94%A8"><span class="toc-text">4.4.2 子程序属性和调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2-1-%E6%AE%B5%E5%86%85%E8%B0%83%E7%94%A8"><span class="toc-text">4.4.2.1 段内调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2-2-%E6%AE%B5%E9%97%B4%E8%B0%83%E7%94%A8"><span class="toc-text">4.4.2.2 段间调用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-3-%E6%B3%A8%E6%84%8F%E5%A0%86%E6%A0%88"><span class="toc-text">4.4.3 注意堆栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-4-Macro%EF%BC%88%E5%AE%8F%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="toc-text">4.4.4 Macro（宏定义）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-INT-21H%E6%8C%87%E4%BB%A4%EF%BC%9A%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA"><span class="toc-text">4.5 INT 21H指令：输入&#x2F;输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1-%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="toc-text">4.5.1 键盘输入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-1-1%E5%8F%B7%E6%8C%87%E4%BB%A4%EF%BC%9A%E5%8D%95%E4%B8%AA%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5"><span class="toc-text">4.5.1.1 1号指令：单个字符输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1-2-10%E5%8F%B7%E6%8C%87%E4%BB%A4%EF%BC%9A%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">4.5.1.2 10号指令：从键盘输入字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-2-%E6%98%BE%E7%A4%BA%E5%99%A8%E8%BE%93%E5%87%BA"><span class="toc-text">4.5.2 显示器输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-1-2%E5%8F%B7%E8%B0%83%E7%94%A8%EF%BC%9A%E5%8D%95%E4%B8%AA%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA"><span class="toc-text">4.5.2.1 2号调用：单个字符输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2-2-9%E5%8F%B7%E8%B0%83%E7%94%A8%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA"><span class="toc-text">4.5.2.2 9号调用：字符串输出</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/26/%E6%B1%87%E7%BC%96/" title="汇编"><img src="/pic/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编"/></a><div class="content"><a class="title" href="/2023/10/26/%E6%B1%87%E7%BC%96/" title="汇编">汇编</a><time datetime="2023-10-26T11:45:36.000Z" title="发表于 2023-10-26 19:45:36">2023-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/25/CMake/" title="CMake"><img src="/pic/3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CMake"/></a><div class="content"><a class="title" href="/2023/10/25/CMake/" title="CMake">CMake</a><time datetime="2023-10-25T04:35:46.000Z" title="发表于 2023-10-25 12:35:46">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/22/%E5%9B%9E%E6%BA%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%AF%87/" title="回溯贪心算法篇"><img src="/pic/10.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="回溯贪心算法篇"/></a><div class="content"><a class="title" href="/2023/10/22/%E5%9B%9E%E6%BA%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%AF%87/" title="回溯贪心算法篇">回溯贪心算法篇</a><time datetime="2023-10-22T01:56:20.000Z" title="发表于 2023-10-22 09:56:20">2023-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/22/%E8%A7%86%E5%9B%BE-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8/" title="视图,存储过程,触发器"><img src="/pic/8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="视图,存储过程,触发器"/></a><div class="content"><a class="title" href="/2023/10/22/%E8%A7%86%E5%9B%BE-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B-%E8%A7%A6%E5%8F%91%E5%99%A8/" title="视图,存储过程,触发器">视图,存储过程,触发器</a><time datetime="2023-10-22T01:56:06.000Z" title="发表于 2023-10-22 09:56:06">2023-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/22/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E-%E7%B4%A2%E5%BC%95-SQL%E4%BC%98%E5%8C%96/" title="存储引擎,索引,SQL优化"><img src="/pic/8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="存储引擎,索引,SQL优化"/></a><div class="content"><a class="title" href="/2023/10/22/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E-%E7%B4%A2%E5%BC%95-SQL%E4%BC%98%E5%8C%96/" title="存储引擎,索引,SQL优化">存储引擎,索引,SQL优化</a><time datetime="2023-10-22T01:55:55.000Z" title="发表于 2023-10-22 09:55:55">2023-10-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 9TSe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
