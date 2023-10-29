@@ -508,9 +508,9 @@
     <category term="线程" scheme="http://example.com/categories/%E7%BA%BF%E7%A8%8B/"/>
     
     
-    <category term="线程同步" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/"/>
-    
     <category term="C++线程" scheme="http://example.com/tags/C-%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="线程同步" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5/"/>
     
     <category term="原子变量" scheme="http://example.com/tags/%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F/"/>
     
