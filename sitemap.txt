@@ -1,3 +1,5 @@
+http://example.com/2023/11/03/MysqlAPI/
+http://example.com/2023/11/03/stu-msg-manage-system/
 http://example.com/2023/10/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
 http://example.com/2023/10/27/Git/
 http://example.com/2023/10/26/%E6%B1%87%E7%BC%96/
