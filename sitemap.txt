@@ -1,5 +1,4 @@
 http://example.com/2023/12/05/RTSP1/
-http://example.com/2024/01/05/test-code/
 http://example.com/2023/11/27/algorithm-other/
 http://example.com/2023/12/05/ffmpeg/
 http://example.com/2023/11/27/%E9%9F%B3%E8%A7%86%E9%A2%911/
