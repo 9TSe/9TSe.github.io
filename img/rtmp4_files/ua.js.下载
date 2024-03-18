@@ -1,0 +1,15 @@
+(function () {
+    // var isBrowserCompatibility = function () {
+    //     const userAgent = window.navigator.userAgent;
+    //     if (userAgent.includes('Chrome') || userAgent.includes('Firefox')) {
+    //         return true;
+    //     }
+    //     return false;
+    // };
+    // if (
+    //     !isBrowserCompatibility() &&
+    //     window.location.href.indexOf('platform=pc') === -1
+    // ) {
+    //     window.location.href = './browserNoCompatibility.html';
+    // }
+})();
